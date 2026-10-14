@@ -18,7 +18,8 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "public-subnet"
+    Name        = "public-subnet"
+    Environment = "development"
   }
 }
 
@@ -28,9 +29,11 @@ resource "aws_subnet" "private" {
   availability_zone = var.private_subnet_az
 
   tags = {
-    Name = "main-subnet"
+    Name        = "main-subnet"
+    Environment = "development"
   }
 }
+
 
 resource "aws_route_table" "main" {
   vpc_id = aws_vpc.main.id
